@@ -1,16 +1,22 @@
-## Hi there 👋
+# Muhammad Musa Portfolio
 
-<!--
-**musahex/musahex** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A clean, professional single-page portfolio designed for graduate technology, cloud, infrastructure, backend and consulting pathways.
 
-Here are some ideas to get you started:
+## Files
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- `index.html` — main page structure and content
+- `styles.css` — visual design, responsive layout and animations
+- `script.js` — scroll reveal, mobile menu and active navigation
+
+## How to run
+
+Open `index.html` in a browser.
+
+## Before submitting
+
+Update the placeholder GitHub and LinkedIn links in `index.html`:
+
+- `https://github.com/`
+- `https://www.linkedin.com/`
+
+No Excel skills have been included.
