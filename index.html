@@ -3,316 +3,1221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Muhammad Musa — early-career technology professional focused on cloud, backend systems, infrastructure support and technology implementation." />
   <title>Muhammad Musa | Technology Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"> 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Portfolio of Muhammad Musa — early-career technology professional focused on software development, cloud computing, infrastructure support, backend systems, and technology implementation." />
+  <meta name="referrer" content="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #07090d;
+      --bg-soft: #0d1118;
+      --surface: #111722;
+      --surface-2: #151d2b;
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #f4f7fb;
+      --muted: #a4afbf;
+      --muted-2: #7d8796;
+      --accent: #7dd3fc;
+      --accent-2: #a78bfa;
+      --accent-3: #22c55e;
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+      --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(125,211,252,0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(167,139,250,0.13), transparent 34rem),
+        linear-gradient(180deg, #07090d 0%, #0a0d13 45%, #07090d 100%);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 80%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: all 0.25s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(7, 9, 13, 0.78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 24px rgba(125,211,252,0.65);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--muted-2);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.3rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 15%, #b8d9ff 45%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 650px;
+      font-size: clamp(1.05rem, 2vw, 1.26rem);
+      color: var(--muted);
+      margin-bottom: 34px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #05070a;
+      background: linear-gradient(135deg, var(--accent), #c4b5fd);
+      font-weight: 700;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border-strong);
+      color: var(--muted);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.32);
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 660px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .stat span {
+      font-size: 0.82rem;
+      color: var(--muted-2);
+    }
+
+    .profile-card {
+      position: relative;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035)),
+        var(--surface);
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -90px;
+      right: -90px;
+      background: radial-gradient(circle, rgba(125,211,252,0.28), transparent 70%);
+    }
+
+    .card-top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+      color: #071018;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 60px rgba(125,211,252,0.22);
+    }
+
+    .status-pill {
+      position: relative;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #b8ffda;
+      border: 1px solid rgba(34,197,94,0.28);
+      background: rgba(34,197,94,0.10);
+      border-radius: 999px;
+      padding: 8px 11px;
+    }
+
+    .terminal {
+      position: relative;
+      background: rgba(5,7,10,0.72);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .cmd {
+      color: var(--text);
+    }
+
+    .out {
+      color: var(--muted-2);
+    }
+
+    .code-lines {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .code-line {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      padding: 13px 14px;
+      border-radius: 16px;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .code-line span:last-child {
+      color: var(--text);
+      text-align: right;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-header {
+      margin-bottom: 34px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 1rem;
+    }
+
+    .about-panel {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 28px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-panel strong {
+      color: var(--text);
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .focus-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .focus-item p {
+      color: var(--muted-2);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 24px;
+      padding: 22px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(125,211,252,0.35);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .skill-icon {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted-2);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.03em;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-card {
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025)),
+        var(--surface);
+      border-radius: 24px;
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .experience-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .experience-card h3 {
+      font-size: 1.12rem;
+      letter-spacing: -0.01em;
+    }
+
+    .company {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+
+    .date {
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    .summary {
+      color: var(--muted);
+      margin: 12px 0 14px;
+      max-width: 900px;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 245px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 24px;
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(125,211,252,0.32);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .project-number {
+      font-family: var(--font-mono);
+      color: var(--muted-2);
+      font-size: 0.75rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 9px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .info-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .contact-panel {
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top left, rgba(125,211,252,0.12), transparent 28rem),
+        rgba(255,255,255,0.035);
+      border-radius: 30px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 12px auto 24px;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted-2);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-panel,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 520px;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links {
+        display: none;
+      }
+
+      .container,
+      .nav-inner {
+        width: min(100% - 28px, 1100px);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding: 112px 0 60px;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-top {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+
+      .contact-panel,
+      .about-panel,
+      .profile-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="page-glow page-glow-one"></div>
-  <div class="page-glow page-glow-two"></div>
-
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#hero" aria-label="Back to top">
-      <span class="brand-mark">MM</span>
-      <span class="brand-text">muhammadmusa</span>
-    </a>
-
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#hero" aria-label="Go to top">
+        <span class="logo-dot"></span>
+        <span>muhammad.musa</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
     <section class="hero" id="hero">
-      <div class="hero-content reveal">
-        <p class="eyebrow"><span></span> Portfolio for technology, cloud and consulting pathways</p>
-        <h1>Building reliable digital systems with a practical, delivery-first mindset.</h1>
-        <p class="hero-copy">
-          I am an early-career technology professional with hands-on experience across backend development,
-          cloud environments, infrastructure support, containerised deployment and endpoint management.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">View projects</a>
-          <a class="button button-secondary" href="#experience">See experience</a>
-        </div>
-      </div>
-
-      <aside class="hero-card reveal delay-1" aria-label="Profile summary card">
-        <div class="status-pill"><span></span> Open to graduate and technology roles</div>
-        <div class="terminal-card">
-          <div class="terminal-top">
-            <i></i><i></i><i></i>
-          </div>
-          <div class="terminal-line"><span>$</span> whoami</div>
-          <p>muhammad musa</p>
-          <div class="terminal-line"><span>$</span> focus</div>
-          <p>cloud • backend • infrastructure • DevOps fundamentals</p>
-          <div class="terminal-line"><span>$</span> location</div>
-          <p>Melbourne, Australia</p>
-        </div>
-
-        <div class="quick-stats">
-          <div>
-            <strong>80</strong>
-            <span>WAM</span>
-          </div>
-          <div>
-            <strong>4+</strong>
-            <span>Technical projects</span>
-          </div>
-          <div>
-            <strong>AWS</strong>
-            <span>Cloud focus</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="section" id="about">
-      <p class="section-kicker reveal">01 — About</p>
-      <div class="split-grid">
-        <div class="reveal">
-          <h2>Technology professional with a strong mix of software, support and delivery experience.</h2>
-        </div>
-        <div class="about-copy reveal delay-1">
-          <p>
-            I recently completed a Bachelor of Computer Science majoring in Cloud Computing, and I am focused on
-            growing within cloud, infrastructure, backend engineering, DevOps or technology implementation roles.
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Technology Portfolio</p>
+          <h1><span class="gradient-text">Muhammad<br />Musa</span></h1>
+          <p class="hero-subtitle">
+            Early-career technology professional focused on <strong>software development, cloud computing,
+            backend systems, infrastructure support,</strong> and practical technology implementation.
           </p>
-          <p>
-            My experience covers enterprise application development, backend APIs, Kubernetes deployments,
-            endpoint support, IT troubleshooting and project leadership. I enjoy turning unclear problems into
-            structured, working solutions.
-          </p>
-          <p>
-            For a firm like KPMG, I bring the combination of technical curiosity, stakeholder communication,
-            documentation discipline and a willingness to learn quickly in client-facing environments.
-          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View Projects →</a>
+            <a class="btn btn-secondary" href="#experience">See Experience</a>
+            <a class="btn btn-secondary" href="mailto:musajee2002@gmail.com">Email Me</a>
+          </div>
+
+          <div class="quick-stats" aria-label="Profile highlights">
+            <div class="stat">
+              <strong>Cloud Computing</strong>
+              <span>Bachelor major</span>
+            </div>
+            <div class="stat">
+              <strong>Backend + DevOps</strong>
+              <span>Node, APIs, Docker, K8s</span>
+            </div>
+            <div class="stat">
+              <strong>Support Mindset</strong>
+              <span>Reliable, calm, practical</span>
+            </div>
+          </div>
         </div>
+
+        <aside class="profile-card reveal" aria-label="Profile summary card">
+          <div class="card-top">
+            <div class="avatar">MM</div>
+            <div class="status-pill">Open to graduate roles</div>
+          </div>
+
+          <div class="terminal">
+            <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+            <div class="out">muhammad musa — technology graduate</div>
+            <div><span class="prompt">$</span> <span class="cmd">cat focus.txt</span></div>
+            <div class="out">cloud • backend • infrastructure • support</div>
+            <div><span class="prompt">$</span> <span class="cmd">echo $LOCATION</span></div>
+            <div class="out">Melbourne, Australia</div>
+          </div>
+
+          <div class="code-lines">
+            <div class="code-line"><span>Current path</span><span>Cloud / DevOps / Backend</span></div>
+            <div class="code-line"><span>Work style</span><span>Structured + team-focused</span></div>
+            <div class="code-line"><span>Goal</span><span>Build reliable systems</span></div>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <p class="section-kicker reveal">02 — Experience</p>
-      <div class="section-heading reveal">
-        <h2>Experience that shaped how I build, support and lead.</h2>
-        <p>Technical roles include deeper delivery detail. Non-technical roles are framed around transferable strengths such as reliability, communication, safety and process discipline.</p>
-      </div>
+    <section id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">01 — About</p>
+          <h2>I like solving practical technology problems.</h2>
+          <p class="section-intro">
+            My background combines software development, cloud computing, infrastructure support, and operational
+            experience. I am interested in roles where I can keep learning, work with strong teams, and contribute to
+            systems that are reliable, scalable, and useful.
+          </p>
+        </div>
 
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <div class="timeline-date">Nov 2025 — Jan 2026</div>
-          <div class="timeline-card">
-            <div class="role-header">
+        <div class="about-panel reveal">
+          <div>
+            <p>
+              I recently completed a <strong>Bachelor of Computer Science</strong> with a major in
+              <strong>Cloud Computing</strong>. Across internships, project leadership roles, and technical projects,
+              I have worked with backend systems, REST APIs, containerised deployments, cloud platforms, endpoint
+              management, and user-focused technology support.
+            </p>
+            <p>
+              What I bring is a mix of technical curiosity and a practical delivery mindset. I enjoy breaking down
+              problems, communicating clearly with people, and turning requirements into workable solutions.
+            </p>
+            <p>
+              For KPMG-style environments, I am especially interested in technology consulting, cloud transformation,
+              implementation, infrastructure, cyber-aware delivery, and business-facing technology problem solving.
+            </p>
+          </div>
+
+          <div class="focus-list">
+            <div class="focus-item">
+              <h3>Technical Foundation</h3>
+              <p>Backend development, cloud basics, containers, APIs, and infrastructure concepts.</p>
+            </div>
+            <div class="focus-item">
+              <h3>Delivery Mindset</h3>
+              <p>Agile teamwork, documentation, stakeholder communication, and clear execution.</p>
+            </div>
+            <div class="focus-item">
+              <h3>Professional Strengths</h3>
+              <p>Reliability, adaptability, attention to detail, and calm problem-solving under pressure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">02 — Skills</p>
+          <h2>Tools and capabilities I work with.</h2>
+          <p class="section-intro">
+            A technical foundation across software development, cloud infrastructure, endpoint support, security
+            awareness, and collaborative delivery.
+          </p>
+        </div>
+
+        <div class="skills-grid reveal">
+          <div class="skill-card">
+            <div class="skill-icon">🧩</div>
+            <h3>Backend Development</h3>
+            <p>Building APIs, server-side features, and application workflows.</p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Ruby on Rails</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">☁️</div>
+            <h3>Cloud & DevOps</h3>
+            <p>Understanding cloud services, containers, deployments, and scalable environments.</p>
+            <div class="tags">
+              <span class="tag">AWS EC2</span>
+              <span class="tag">S3</span>
+              <span class="tag">IAM</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🖥️</div>
+            <h3>Infrastructure Support</h3>
+            <p>Supporting Windows environments, user access, endpoint basics, and troubleshooting.</p>
+            <div class="tags">
+              <span class="tag">Windows 10/11</span>
+              <span class="tag">Intune</span>
+              <span class="tag">Entra ID</span>
+              <span class="tag">MFA</span>
+              <span class="tag">Device Support</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🔐</div>
+            <h3>Security Awareness</h3>
+            <p>Working with secure development concepts and basic security tooling.</p>
+            <div class="tags">
+              <span class="tag">OWASP Top 10</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Burp Suite</span>
+              <span class="tag">Nmap</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h3>Programming & Tools</h3>
+            <p>Writing code, managing source control, testing APIs, and collaborating through developer workflows.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitLab</span>
+              <span class="tag">Postman</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🤝</div>
+            <h3>Professional Skills</h3>
+            <p>Working with people, documenting clearly, and taking ownership of outcomes.</p>
+            <div class="tags">
+              <span class="tag">Communication</span>
+              <span class="tag">Documentation</span>
+              <span class="tag">Agile</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Teamwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">03 — Experience</p>
+          <h2>Experience across development, support, and technical leadership.</h2>
+          <p class="section-intro">
+            My experience includes technical roles, project leadership, and IT support work that built
+            reliability, communication, problem-solving, and delivery skills.
+          </p>
+        </div>
+
+        <div class="timeline reveal">
+          <article class="experience-card">
+            <div class="experience-top">
               <div>
                 <h3>Application Developer Intern</h3>
-                <p>Pronto Software</p>
+                <p class="company">Pronto Software</p>
               </div>
-              <span>Full-stack development</span>
+              <p class="date">Nov 2025 – Jan 2026</p>
             </div>
-            <ul>
-              <li>Developed and maintained features for the Pronto Plus support platform using Ruby on Rails, Vue.js, Vite, Storybook, MySQL and Docker.</li>
-              <li>Built reusable Vue.js components and RESTful Rails APIs to support service request, ticket management and notification workflows.</li>
-              <li>Worked through GitLab feature branches, merge requests, code reviews and CI/CD workflows in Agile delivery cycles.</li>
-              <li>Collaborated with developers and product stakeholders to clarify requirements, resolve defects and improve usability.</li>
+            <p class="summary">
+              Contributed to the Pronto Plus support platform across full-stack development, enterprise workflows,
+              and Agile delivery.
+            </p>
+            <ul class="bullet-list">
+              <li>Developed and maintained application features using Ruby on Rails, Vue.js, MySQL, and Docker.</li>
+              <li>Built reusable Vue.js components and RESTful Rails APIs for support and notification workflows.</li>
+              <li>Used GitLab feature branches, merge requests, code reviews, and CI/CD workflows.</li>
+              <li>Collaborated with developers and product stakeholders to clarify requirements and resolve defects.</li>
             </ul>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item reveal">
-          <div class="timeline-date">Jun 2025 — Oct 2025</div>
-          <div class="timeline-card">
-            <div class="role-header">
+          <article class="experience-card">
+            <div class="experience-top">
               <div>
                 <h3>Project Leader</h3>
-                <p>Gopher Industries</p>
+                <p class="company">Gopher Industries</p>
               </div>
-              <span>Leadership + backend</span>
+              <p class="date">Jun 2025 – Oct 2025</p>
             </div>
-            <ul>
-              <li>Led the development of Secure Shift, a workforce management platform for guards, employers and administrators.</li>
-              <li>Coordinated an 18-member cross-functional team across backend, frontend, mobile and documentation streams.</li>
-              <li>Contributed to backend modules using Node.js, Express, MongoDB and JWT authentication.</li>
-              <li>Managed MVP scope, sprint planning, technical documentation and stakeholder alignment across core modules.</li>
+            <p class="summary">
+              Led delivery of Secure Shift, a workforce management platform for guards, employers, and administrators.
+            </p>
+            <ul class="bullet-list">
+              <li>Coordinated an 18-member cross-functional team across backend, frontend, mobile, and documentation.</li>
+              <li>Directed MVP scoping and delivery for Auth, User, Shift, Messaging, and notification modules.</li>
+              <li>Contributed backend features using Node.js, Express, MongoDB, and JWT authentication.</li>
+              <li>Managed project documentation, sprint planning, stakeholder alignment, and delivery tracking.</li>
             </ul>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item reveal">
-          <div class="timeline-date">Mar 2025 — Jun 2025</div>
-          <div class="timeline-card">
-            <div class="role-header">
+          <article class="experience-card">
+            <div class="experience-top">
               <div>
                 <h3>Junior Backend Developer</h3>
-                <p>Chameleon</p>
+                <p class="company">Chameleon</p>
               </div>
-              <span>Backend systems</span>
+              <p class="date">Mar 2025 – Jun 2025</p>
             </div>
-            <ul>
-              <li>Engineered backend features using Node.js, Express, TypeScript, MongoDB and JWT authentication.</li>
-              <li>Improved API response times and supported more reliable application workflows.</li>
-              <li>Implemented admin panel enhancements to improve usability and operational efficiency.</li>
-              <li>Used mentor and peer feedback to refine technical solutions and improve code quality.</li>
+            <p class="summary">
+              Worked on backend features for web application functionality, API performance, and admin workflows.
+            </p>
+            <ul class="bullet-list">
+              <li>Engineered backend features using Node.js, Express, TypeScript, MongoDB, and JWT authentication.</li>
+              <li>Improved API performance and reliability to support smoother application workflows.</li>
+              <li>Supported admin panel enhancements to improve usability and operational efficiency.</li>
+              <li>Used mentor and peer feedback to refine technical decisions and code quality.</li>
             </ul>
-          </div>
-        </article>
+          </article>
 
-        <article class="timeline-item reveal">
-          <div class="timeline-date">Nov 2024 — Present</div>
-          <div class="timeline-card">
-            <div class="role-header">
-              <div>
-                <h3>Centre Management Officer</h3>
-                <p>Excell Protective Group</p>
-              </div>
-              <span>Operations + risk awareness</span>
-            </div>
-            <ul>
-              <li>Maintained accurate operational records, incident logs and site documentation while monitoring centre activity and surveillance systems.</li>
-              <li>Built transferable strengths in stakeholder communication, attention to detail, calm decision-making and structured issue response.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <div class="timeline-date">Aug 2022 — Oct 2022</div>
-          <div class="timeline-card">
-            <div class="role-header">
+          <article class="experience-card">
+            <div class="experience-top">
               <div>
                 <h3>System Support Intern</h3>
-                <p>NEO Network</p>
+                <p class="company">NEO Network</p>
               </div>
-              <span>IT support</span>
+              <p class="date">Aug 2022 – Oct 2022</p>
             </div>
-            <ul>
-              <li>Delivered frontline IT support across Windows environments, assisting with troubleshooting, device setup, system upgrades and access issues.</li>
-              <li>Supported infrastructure reliability by helping reduce downtime, improve user productivity and strengthen security compliance.</li>
+            <p class="summary">
+              Provided frontline IT support across Windows environments, troubleshooting, device setup, and technical issue resolution.
+            </p>
+            <ul class="bullet-list">
+              <li>Delivered end-user IT support across hardware, software, access, and system troubleshooting requests.</li>
+              <li>Assisted with Windows device deployment, upgrades, and security compliance activities to reduce downtime.</li>
             </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <p class="section-kicker reveal">03 — Projects</p>
-      <div class="section-heading reveal">
-        <h2>Selected technical projects.</h2>
-        <p>Projects showing cloud deployment, backend engineering, concurrency, Kubernetes and applied software development.</p>
-      </div>
-
-      <div class="project-grid">
-        <a class="project-card reveal" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <div class="project-number">01</div>
-          <h3>IoT Smart Parking System</h3>
-          <p>Designed and deployed a real-time parking monitoring system using AWS EC2, load balancing, MQTT messaging and Node-RED integration.</p>
-          <div class="tag-row">
-            <span>AWS EC2</span><span>MQTT</span><span>Node-RED</span><span>MongoDB</span>
-          </div>
-        </a>
-
-        <a class="project-card reveal delay-1" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <div class="project-number">02</div>
-          <h3>Hospital-k8s Deployment</h3>
-          <p>Containerised a backend service and deployed it through Kubernetes manifests to support scalable and repeatable environment orchestration.</p>
-          <div class="tag-row">
-            <span>Kubernetes</span><span>Docker</span><span>YAML</span><span>DevOps</span>
-          </div>
-        </a>
-
-        <a class="project-card reveal" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <div class="project-number">03</div>
-          <h3>Multi-Threaded File Downloader</h3>
-          <p>Built a Python GUI tool using concurrent downloading, HTTP range requests and real-time progress tracking for improved throughput.</p>
-          <div class="tag-row">
-            <span>Python</span><span>Concurrency</span><span>GUI</span><span>HTTP</span>
-          </div>
-        </a>
-
-        <a class="project-card reveal delay-1" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <div class="project-number">04</div>
-          <h3>Mobile AI Chat App</h3>
-          <p>Developed an Android AI-powered chat application in Java with a structured Gradle build and clean mobile application flow.</p>
-          <div class="tag-row">
-            <span>Java</span><span>Android</span><span>Gradle</span><span>AI App</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <p class="section-kicker reveal">04 — Skills</p>
-      <div class="skills-layout">
-        <div class="reveal">
-          <h2>Tools and capabilities I bring into delivery teams.</h2>
-          <p class="muted-copy">Focused on practical implementation, supportability, secure foundations and the ability to learn fast in enterprise environments.</p>
-        </div>
-
-        <div class="skills-grid reveal delay-1">
-          <div class="skill-card">
-            <span>01</span>
-            <h3>Backend Development</h3>
-            <p>Node.js, Express, TypeScript, Ruby on Rails, RESTful APIs, MongoDB, MySQL and JWT authentication.</p>
-          </div>
-          <div class="skill-card">
-            <span>02</span>
-            <h3>Cloud & DevOps</h3>
-            <p>AWS EC2, S3, IAM, AMIs, Elastic Load Balancing, Docker, Kubernetes manifests and CI/CD familiarity.</p>
-          </div>
-          <div class="skill-card">
-            <span>03</span>
-            <h3>Infrastructure Support</h3>
-            <p>Windows 10/11 support, Microsoft Intune, Entra ID fundamentals, device enrolment and application management.</p>
-          </div>
-          <div class="skill-card">
-            <span>04</span>
-            <h3>Professional Delivery</h3>
-            <p>Stakeholder communication, documentation, Agile delivery, issue triage, teamwork and structured problem solving.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <p class="section-kicker reveal">05 — Contact</p>
-      <div class="contact-card reveal">
-        <h2>Let’s connect.</h2>
-        <p>
-          I am interested in cloud, infrastructure, DevOps, backend development and technology implementation opportunities.
-        </p>
-        <div class="contact-actions">
-          <a class="button button-primary" href="mailto:musajee2002@gmail.com">Email me</a>
-          <a class="button button-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <section id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">04 — Projects</p>
+          <h2>Selected technical projects.</h2>
+          <p class="section-intro">
+            Projects that show practical exposure to cloud deployment, real-time systems, concurrency, mobile development,
+            and containerised environments.
+          </p>
+        </div>
+
+        <div class="projects-grid reveal">
+          <article class="project-card">
+            <div>
+              <p class="project-number">01</p>
+              <h3>IoT Smart Parking System</h3>
+              <p>
+                Designed and deployed a real-time parking monitoring system using AWS EC2, MQTT messaging, Node-RED,
+                MongoDB, and load balancing.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">MQTT</span>
+              <span class="tag">Node-RED</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <p class="project-number">02</p>
+              <h3>Hospital Kubernetes Deployment</h3>
+              <p>
+                Containerised a backend service and deployed it using Kubernetes manifests to create a scalable,
+                repeatable environment.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Manifests</span>
+              <span class="tag">DevOps</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <p class="project-number">03</p>
+              <h3>Multi-Threaded File Downloader</h3>
+              <p>
+                Built a Python GUI tool using concurrent downloading, HTTP range requests, threading, and real-time
+                progress tracking.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Concurrency</span>
+              <span class="tag">GUI</span>
+              <span class="tag">HTTP</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <p class="project-number">04</p>
+              <h3>Mobile AI Chat App</h3>
+              <p>
+                Developed an Android AI-powered chat application in Java with a structured Gradle build and mobile-first
+                user interaction flow.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Android</span>
+              <span class="tag">Gradle</span>
+              <span class="tag">AI App</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-label">05 — Education & Certifications</p>
+          <h2>Learning focused on cloud, systems, and software.</h2>
+        </div>
+
+        <div class="education-grid reveal">
+          <div class="info-card">
+            <h3>Bachelor of Computer Science</h3>
+            <p>Deakin University — Major in Cloud Computing. WAM: 80.</p>
+            <div class="tags">
+              <span class="tag">Cloud Computing</span>
+              <span class="tag">Software Engineering</span>
+              <span class="tag">Distributed Systems</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Certifications & Learning</h3>
+            <p>Selected learning across cloud, endpoint administration, backend development, and IT service concepts.</p>
+            <div class="cert-list">
+              <span class="tag">AWS Solutions Architect</span>
+              <span class="tag">Microsoft Endpoint Admin</span>
+              <span class="tag">Ruby on Rails</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">ITIL V4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <p class="section-label">06 — Contact</p>
+          <h2>Let’s connect.</h2>
+          <p>
+            I am open to graduate, cloud, infrastructure, DevOps, backend, technology implementation, and consulting-aligned
+            opportunities.
+          </p>
+          <div class="cta-row" style="justify-content:center; margin-bottom:0;">
+            <a class="btn btn-primary" href="mailto:musajee2002@gmail.com">musajee2002@gmail.com →</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>Designed and built by <span>Muhammad Musa</span> · 2026</p>
+  <footer>
+    <div class="container">
+      designed & built by Muhammad Musa · 2026
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const nav = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("main section[id]");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 220) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.style.color = link.getAttribute("href") === "#" + current
+          ? "var(--text)"
+          : "";
+      });
+    });
+  </script>
 </body>
 </html>
